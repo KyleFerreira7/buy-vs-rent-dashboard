@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buy vs Rent — Cape Town Property Calculator</title>
+
+<link href=https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap rel="stylesheet">
+
+<script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js></script>
+
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+ 
+
+<!-- Transition overlay -->
+
+<div class="page-transition" id="transition"></div>
+
+<div id="toast"></div>
+
+ 
+
+<!-- ══════════════════════════════════════════
+
+     LANDING PAGE
+
+══════════════════════════════════════════ -->
+
+<div id="landing">
+
+  <div class="glow-orb glow-orb-1"></div>
+
+  <div class="glow-orb glow-orb-2"></div>
+
+ 
+
+  <!-- Nav -->
+
+  <nav class="land-nav">
+
+    <div class="nav-logo">buy<span>.</span>rent</div>
+
+    <div class="nav-links">
+
+      <a href="#how">How it works</a>
+
+      <a href="#features">Features</a>
+
+      <a href="#context">Cape Town</a>
+
+    </div>
+
+    <button class="nav-cta" onclick="launchDashboard()">Open Calculator →</button>
+
+  </nav>
+
+ 
+
+  <!-- Hero -->
+
+  <section class="hero">
+
+    <div class="hero-eyebrow">
+
+      <div class="hero-eyebrow-dot"></div>
+
+      Cape Town Property Analysis · 2025
+
+    </div>
+
+ 
+
+    <h1 class="hero-h1">
+
+      Should you<br><em>buy or rent</em><br>in Cape Town?
+
+    </h1>
+
+ 
+
+    <p class="hero-sub">
+
+      A data-driven wealth comparison calculator built for the South African market.
+
+      Model your financial future across any horizon — with realistic local assumptions baked in.
+
+    </p>
+
+ 
+
+    <div class="hero-actions">
+
+      <button class="btn-primary" onclick="launchDashboard()">
+
+        ⚡ Run the numbers
+
+      </button>
+
+      <button class="btn-ghost-white" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">
+
+        See how it works ↓
+
+      </button>
+
+    </div>
+
+ 
+
+    <div class="hero-stats">
+
+      <div class="hero-stat">
+
+        <div class="sv">11<span>.25%</span></div>
+
+        <div class="sl">SA Prime lending rate</div>
+
+      </div>
+
+      <div class="hero-stat">
+
+        <div class="sv">5–7<span>%</span></div>
+
+        <div class="sl">Cape Town avg property appreciation</div>
+
+      </div>
+
+      <div class="hero-stat">
+
+        <div class="sv">10–12<span>%</span></div>
+
+        <div class="sl">JSE All Share nominal avg return</div>
+
+      </div>
+
+      <div class="hero-stat">
+
+        <div class="sv">20<span>+</span></div>
+
+        <div class="sl">Variables modelled</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ 
+
+  <div class="section-divider"></div>
+
+ 
+
+  <!-- How it works -->
+
+  <section class="section" id="how">
+
+    <span class="section-tag">How it works</span>
+
+    <h2 class="section-h2">Three steps to clarity</h2>
+
+    <p class="section-sub">No spreadsheets. No guesswork. Just your numbers, visualised across your investment horizon.</p>
+
+ 
+
+    <div class="how-grid">
+
+      <div class="how-card">
+
+        <div class="how-num">01</div>
+
+        <div class="how-icon">🏠</div>
+
+        <div class="how-title">Enter your buying scenario</div>
+
+        <div class="how-desc">Input the property price, deposit, interest rate, transfer costs, and expected appreciation. The calculator handles bond repayments and equity build-up automatically.</div>
+
+      </div>
+
+      <div class="how-card">
+
+        <div class="how-num">02</div>
+
+        <div class="how-icon">📈</div>
+
+        <div class="how-title">Set up the renting alternative</div>
+
+        <div class="how-desc">Enter your current rent, expected rent escalation, and the market return you'd earn by investing your deposit instead. The JSE default is a reasonable starting point.</div>
+
+      </div>
+
+      <div class="how-card">
+
+        <div class="how-num">03</div>
+
+        <div class="how-icon">⚖️</div>
+
+        <div class="how-title">Compare wealth over time</div>
+
+        <div class="how-desc">See the wealth curves for both paths, the exact year buying overtakes renting, and a full year-by-year breakdown — so you know where you stand at every stage.</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ 
+
+  <div class="section-divider"></div>
+
+ 
+
+  <!-- Features -->
+
+  <section class="section" id="features">
+
+    <span class="section-tag">What's inside</span>
+
+    <h2 class="section-h2">Built for serious analysis</h2>
+
+    <p class="section-sub">More thorough than most online calculators. Covers the inputs that actually move the needle.</p>
+
+ 
+
+    <div class="features-grid">
+
+      <div class="feat-card">
+
+        <div class="feat-icon-wrap" style="background:rgba(26,63,214,0.12)">📊</div>
+
+        <div class="feat-body">
+
+          <h4>Wealth over time chart</h4>
+
+          <p>Year-by-year comparison of buying equity vs the renter's invested portfolio, plotted on a single chart for direct comparison.</p>
+
+        </div>
+
+      </div>
+
+      <div class="feat-card">
+
+        <div class="feat-icon-wrap" style="background:rgba(0,167,152,0.12)">⚖️</div>
+
+        <div class="feat-body">
+
+          <h4>Break-even year detection</h4>
+
+          <p>Automatically identifies the exact year at which owning property surpasses renting and investing — the single most useful number in the analysis.</p>
+
+        </div>
+
+      </div>
+
+      <div class="feat-card">
+
+        <div class="feat-icon-wrap" style="background:rgba(17,138,94,0.12)">💰</div>
+
+        <div class="feat-body">
+
+          <h4>Full cost modelling</h4>
+
+          <p>Covers bond repayments, transfer duty, conveyancing, annual rates & levies, maintenance, rent escalation, and opportunity cost of capital.</p>
+
+        </div>
+
+      </div>
+
+      <div class="feat-card">
+
+        <div class="feat-icon-wrap" style="background:rgba(212,162,0,0.12)">🏦</div>
+
+        <div class="feat-body">
+
+          <h4>South African market defaults</h4>
+
+          <p>Pre-loaded with locally relevant figures — prime-linked interest rates, Cape Town appreciation, JSE returns, and typical once-off transaction costs.</p>
+
+        </div>
+
+      </div>
+
+      <div class="feat-card">
+
+        <div class="feat-icon-wrap" style="background:rgba(96,98,169,0.12)">📅</div>
+
+        <div class="feat-body">
+
+          <h4>Flexible horizon</h4>
+
+          <p>Adjust the analysis window from 1 to 40 years. The dashboard recalculates everything instantly — useful for short-term vs long-term planning.</p>
+
+        </div>
+
+      </div>
+
+      <div class="feat-card">
+
+        <div class="feat-icon-wrap" style="background:rgba(224,44,28,0.1)">🔄</div>
+
+        <div class="feat-body">
+
+          <h4>Monthly cost tracking</h4>
+
+          <p>Shows how the renter's escalating rent eventually converges with (or exceeds) the buyer's fixed bond payment — a dynamic often missed in simple calculators.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ 
+
+  <div class="section-divider"></div>
+
+ 
+
+  <!-- Cape Town context -->
+
+  <div class="context-strip" id="context">
+
+    <div class="context-inner">
+
+      <div>
+
+        <span class="section-tag">Cape Town context</span>
+
+        <h2 class="section-h2">Why this market is unique</h2>
+
+        <p class="section-sub" style="margin-bottom:0">The Cape Town property market behaves differently from Johannesburg and other metros — understanding the local dynamics matters.</p>
+
+      </div>
+
+      <div class="context-facts">
+
+        <div class="fact-row">
+
+          <div class="fact-icon">🌍</div>
+
+          <div class="fact-text">
+
+            <h5>Semigration-driven demand</h5>
+
+            <p>Sustained internal migration from Gauteng and other provinces keeps Cape Town demand elevated, supporting stronger appreciation than the national average.</p>
+
+          </div>
+
+        </div>
+
+        <div class="fact-row">
+
+          <div class="fact-icon">📉</div>
+
+          <div class="fact-text">
+
+            <h5>High transfer duty on mid-range homes</h5>
+
+            <p>Properties above R1.1m attract transfer duty on a sliding scale up to 13%, making once-off costs a meaningful drag on early-year returns for buyers.</p>
+
+          </div>
+
+        </div>
+
+        <div class="fact-row">
+
+          <div class="fact-icon">💹</div>
+
+          <div class="fact-text">
+
+            <h5>JSE as the alternative benchmark</h5>
+
+            <p>A diversified JSE/global ETF portfolio has returned 10–12% nominally over long periods, setting a high bar for property to beat in pure wealth terms.</p>
+
+          </div>
+
+        </div>
+
+        <div class="fact-row">
+
+          <div class="fact-icon">🏢</div>
+
+          <div class="fact-text">
+
+            <h5>Rental yields are relatively low</h5>
+
+            <p>Cape Town's high property prices compress gross rental yields to roughly 4–6%, meaning buying for investment income alone rarely beats renting and investing.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ 
+
+  <!-- CTA -->
+
+  <section class="cta-section">
+
+    <div class="cta-inner">
+
+      <span class="section-tag" style="display:block;margin-bottom:12px">Ready?</span>
+
+      <h2 class="section-h2">Run your own numbers</h2>
+
+      <p class="section-sub">
+
+        Every situation is different. Plug in your actual property price, deposit, and rent — and see where the crossover is for you.
+
+      </p>
+
+      <button class="btn-primary" style="margin:0 auto;display:inline-flex" onclick="launchDashboard()">
+
+        ⚡ Open the calculator
+
+      </button>
+
+    </div>
+
+  </section>
+
+ 
+
+  <!-- Footer -->
+
+  <footer class="land-footer">
+
+    <p>Built for the Cape Town property market · For educational purposes only · Not financial advice</p>
+
+    <div class="land-footer-links">
+
+      <span>Buy vs Rent Calculator</span>
+
+      <span>ZAR · 2025</span>
+
+    </div>
+
+  </footer>
+
+</div>
+
+ 
+
+<!-- ══════════════════════════════════════════
+
+     DASHBOARD
+
+══════════════════════════════════════════ -->
+
+<div id="dashboard">
+
+ 
+
+  <div class="app-header">
+
+    <div class="app-header-l">
+
+      <button class="btn-back" onclick="goBack()">← Back</button>
+
+      <div class="hdr-divider"></div>
+
+      <div class="app-title">Buy vs Rent</div>
+
+      <div class="hdr-divider"></div>
+
+      <div class="app-meta">Wealth comparison calculator</div>
+
+    </div>
+
+    <div class="hdr-badge">
+
+      <div class="hdr-dot"></div>
+
+      Cape Town, ZA · ZAR
+
+    </div>
+
+  </div>
+
+ 
+
+  <div class="shell">
+
+ 
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+ 
+
+      <div class="sidebar-section">
+
+        <div class="section-label"><span class="section-pill pill-buy">🏠 Buying</span></div>
+
+ 
+
+        <div class="field">
+
+          <label>Purchase Price</label>
+
+          <div class="input-wrap">
+
+            <span class="input-prefix">R</span>
+
+            <input type="number" id="purchasePrice" value="3500000" step="50000">
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Deposit / Down Payment</label>
+
+          <div class="input-wrap">
+
+            <span class="input-prefix">R</span>
+
+            <input type="number" id="deposit" value="700000" step="10000">
+
+          </div>
+
+          <div class="hint" id="depositPct"></div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Interest Rate (Prime-linked)</label>
+
+          <div class="input-wrap">
+
+            <input type="number" id="interestRate" value="11.75" step="0.25" style="padding-left:12px">
+
+            <span class="input-suffix">%</span>
+
+          </div>
+
+          <div class="hint">SA Prime ~11.25%; add bank margin</div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Loan Term</label>
+
+          <div class="input-wrap">
+
+            <input type="number" id="loanTerm" value="20" min="5" max="30" style="padding-left:12px">
+
+            <span class="input-suffix">yrs</span>
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Once-off Costs</label>
+
+          <div class="input-wrap">
+
+            <span class="input-prefix">R</span>
+
+            <input type="number" id="onceCosts" value="120000" step="5000">
+
+          </div>
+
+          <div class="hint">Transfer duty, conveyancing, bond registration</div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Annual Property Appreciation</label>
+
+          <div class="input-wrap">
+
+            <input type="number" id="appreciation" value="5.5" step="0.5" style="padding-left:12px">
+
+            <span class="input-suffix">%</span>
+
+          </div>
+
+          <div class="hint">Cape Town avg ~5–7% historically</div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Annual Ownership Costs</label>
+
+          <div class="input-wrap">
+
+            <span class="input-prefix">R</span>
+
+            <input type="number" id="annualCosts" value="48000" step="1000">
+
+          </div>
+
+          <div class="hint">Rates, levies, maintenance, insurance</div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Estate Agent Commission on Sale</label>
+
+          <div class="input-wrap">
+
+            <input type="number" id="agentComm" value="5.5" step="0.5" style="padding-left:12px">
+
+            <span class="input-suffix">%</span>
+
+          </div>
+
+          <div class="hint">Typically 5–6% of eventual sale price</div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="sidebar-section">
+
+        <div class="section-label"><span class="section-pill pill-rent">🏢 Renting</span></div>
+
+ 
+
+        <div class="field">
+
+          <label>Monthly Rent</label>
+
+          <div class="input-wrap">
+
+            <span class="input-prefix">R</span>
+
+            <input type="number" id="monthlyRent" value="18000" step="500">
+
+          </div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Annual Rent Increase</label>
+
+          <div class="input-wrap">
+
+            <input type="number" id="rentIncrease" value="7" step="0.5" style="padding-left:12px">
+
+            <span class="input-suffix">%</span>
+
+          </div>
+
+          <div class="hint">SA avg CPI ~4–6%; landlords often higher</div>
+
+        </div>
+
+        <div class="field">
+
+          <label>Market Return on Investments</label>
+
+          <div class="input-wrap">
+
+            <input type="number" id="marketReturn" value="10" step="0.5" style="padding-left:12px">
+
+            <span class="input-suffix">%</span>
+
+          </div>
+
+          <div class="hint">JSE All Share avg ~10–12% nominal p.a.</div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <div class="sidebar-section">
+
+        <div class="section-label"><span class="section-pill pill-general">⚙️ General</span></div>
+
+        <div class="field">
+
+          <label>Analysis Horizon</label>
+
+          <div class="input-wrap">
+
+            <input type="number" id="horizon" value="20" min="1" max="40" style="padding-left:12px">
+
+            <span class="input-suffix">yrs</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <button class="btn-calc" onclick="calculate()">Calculate →</button>
+
+      <button class="btn-reset" onclick="resetDefaults()">Reset to defaults</button>
+
+    </div>
+
+ 
+
+    <!-- Main results -->
+
+    <div class="main" id="main">
+
+ 
+
+      <div class="disclaimer">
+
+        <div class="disc-icon">⚠️</div>
+
+        <p>This calculator is for <strong>educational purposes only</strong> and does not constitute financial advice. Returns are modelled assumptions, not guarantees. Consult a qualified financial advisor before making property decisions.</p>
+
+      </div>
+
+ 
+
+      <!-- Verdict -->
+
+      <div class="verdict-banner" id="verdictBanner">
+
+        <div class="verdict-icon" id="verdictIcon"></div>
+
+        <div class="verdict-text">
+
+          <h2 id="verdictTitle"></h2>
+
+          <p id="verdictSub"></p>
+
+        </div>
+
+        <div class="verdict-delta">
+
+          <div class="dv" id="verdictDelta"></div>
+
+          <div class="dl">Wealth difference · Yr <span id="horizonLabel"></span></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <!-- KPIs -->
+
+      <div class="kpi-row" id="kpiRow"></div>
+
+ 
+
+      <!-- Breakeven -->
+
+      <div class="breakeven-card">
+
+        <div class="be-icon">⚖️</div>
+
+        <div class="be-body">
+
+          <h3 id="beTitle"></h3>
+
+          <p id="beSub"></p>
+
+        </div>
+
+        <div class="be-year" id="beYear"></div>
+
+      </div>
+
+ 
+
+      <!-- Wealth chart -->
+
+      <div class="chart-card chart-grid-full" style="margin-bottom:16px">
+
+        <div class="chart-title">Wealth Over Time</div>
+
+        <div class="chart-sub">Net wealth — buying equity (property value minus bond) vs renter's invested portfolio</div>
+
+        <div class="legend">
+
+          <div class="leg-item"><div class="leg-dot" style="background:var(--buy-color)"></div>Buy equity</div>
+
+          <div class="leg-item"><div class="leg-dot" style="background:var(--rent-color)"></div>Rent + invest</div>
+
+        </div>
+
+        <div class="ch h270"><canvas id="chWealth"></canvas></div>
+
+      </div>
+
+ 
+
+      <div class="chart-grid-2">
+
+        <div class="chart-card">
+
+          <div class="chart-title">Monthly Cost Comparison</div>
+
+          <div class="chart-sub">Buyer's total monthly cost vs escalating rent</div>
+
+          <div class="ch h210"><canvas id="chMonthly"></canvas></div>
+
+        </div>
+
+        <div class="chart-card">
+
+          <div class="chart-title">Property Equity Build-up</div>
+
+          <div class="chart-sub">Net equity vs outstanding bond balance</div>
+
+          <div class="ch h210"><canvas id="chEquity"></canvas></div>
+
+        </div>
+
+      </div>
+
+ 
+
+      <!-- Table -->
+
+      <div class="table-card">
+
+        <div class="table-toolbar"><span class="ttitle">Year-by-Year Summary</span></div>
+
+        <div class="t-wrap">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>Year</th>
+
+                <th>Property Value</th>
+
+                <th>Bond Balance</th>
+
+                <th>Buy Equity</th>
+
+                <th>Rent Wealth</th>
+
+                <th>Advantage</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody id="tableBody"></tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+ 
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+
+ 
