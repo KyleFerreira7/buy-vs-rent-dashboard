@@ -351,6 +351,7 @@ html { scroll-behavior: smooth; }
 
 .hero-stat {}
 
+
 .hero-stat .sv {
 
   font-family: 'Playfair Display', serif;
@@ -360,6 +361,9 @@ html { scroll-behavior: smooth; }
 }
 
 .hero-stat .sv span { color: var(--sky); }
+
+
+
 
 .hero-stat .sl {
 
